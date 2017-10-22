@@ -16,5 +16,5 @@ s5-detect-class: s5-detect-class.c
 detect-class: detect-class.c
 	gcc -o detect-class detect-class.c
 clean:
-	rm -f s1-generate-suffix show-suffix s3-compute-neighbor s4-compute-lcp s5-detect-class *~
+	rm -f show-class show-suffix s1-generate-suffix show-suffix s3-compute-neighbor s4-compute-lcp s5-detect-class detect-class RESULT CORPUS.s1 CORPUS.s2 CORPUS.s3 CORPUS.s4 *~
 
