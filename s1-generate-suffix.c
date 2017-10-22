@@ -25,7 +25,7 @@ static int neighbor1 = -1;
 static int neighbor2 = -1;
 static int neighbor3 = -1;
 
-static int suffix_out(int pos)
+static void suffix_out(int pos)
 { int i;
   if(pos < 0) return;
   if(ring_buffer[pos & MASK] == 0) return;
