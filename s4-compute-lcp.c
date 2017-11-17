@@ -20,7 +20,7 @@
 static char line[1024];
 static char text1[1024];
 static char text2[1024];
-static int doc_que[MAXDOC][3];
+/* static int doc_que[MAXDOC][3]; */
 static int doc_id = -1;
 static int text_pos = -1;
 static int text_id = -1;
@@ -55,7 +55,8 @@ int lcp_string(char * s1, char * s2)
   
 
 int main()
-{ char * p; int n; int i; int j; int dummy; char * temp_text;
+{ /*char * p; int n; int i; int j; int dummy; */
+  char * temp_text;
  
   text = text1;
   new_text = text2;

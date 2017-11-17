@@ -18,7 +18,7 @@
 #define MASK 0x3f
 static int ring_buffer[MASK+1];
 static int doc_id = -1;
-static int suffix_pos = -1;
+/* static int suffix_pos = -1; */
 static int suffix_id = -1;
 static int lcp = -1;
 static int neighbor1 = -1;

@@ -40,8 +40,9 @@ struct suffix_struct current_suffix;
 int    suffix_size = 0;
 struct suffix_struct suffix_table[SUFFIX_MAX];
 
-static char line[1024];
+// static char line[1024];
 /* printing class: a set of string whose statistics are identical */
+#ifdef DEBUG
 static void report_class(int first, int last, int sil, 
 			 int cdf1, int cdf2, int cdf3, int cdf4)
 { int i;
@@ -53,6 +54,7 @@ static void report_class(int first, int last, int sil,
   fprintf(stdout, "\n");
   fflush(stdout); }
 /* classs is the set of string, that share the occurence pattern */
+#endif
 
 struct class_struct
 { int id;
@@ -87,7 +89,7 @@ static int find_responsible_class_level(int id)
   exit(1);  }
 
 static int suffix_text_order(const void *x, const void * y)
-{ int r;
+{ // int r;
   struct suffix_struct * xs;
   struct suffix_struct * ys;
   char * xt;
@@ -104,7 +106,7 @@ static int suffix_text_order(const void *x, const void * y)
 }
 
 static int suffix_document_text_order(const void *x, const void * y)
-{ int r;
+{ // int r;
   struct suffix_struct * xs;
   struct suffix_struct * ys;
   char * xt;

@@ -18,9 +18,9 @@ static int lcp = -1;
 static int dl1 = -1;
 static int dl2 = -1;
 static int dl3 = -1;
-static int phai = -1;
+/* static int phai = -1; */
 int main()
-{ char * p; int n; 
+{ /* char * p; int n;  */
   fprintf(stdout, "%10s %10s %10s %10s %10s %10s %10s %s\n", 
 	    "doc_id", "suffix_pos", "suffix_id", "lcp",
 	    "neighbor1", "neighbor2", "neighbor3", "contents");

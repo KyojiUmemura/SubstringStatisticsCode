@@ -36,7 +36,8 @@ static int neighbor2 = -1;
 static int neighbor3 = -1;
 
 int main()
-{ char * p; int n; int i; int j; int dummy;
+{ /* char * p; int n; */
+  int i; int j; int dummy;
  
   for(i=0;i<MAXDOC;i++) {
    for(j=0;j<3;j++) {
