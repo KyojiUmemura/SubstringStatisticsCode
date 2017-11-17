@@ -20,7 +20,9 @@
 /* After the, we can sort the suffix file again */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <ctype.h>
+
 #define MAXDOC 10240
 static char line[10240];
 static char text[10240];
@@ -33,7 +35,7 @@ static int neighbor1 = -1;
 static int neighbor2 = -1;
 static int neighbor3 = -1;
 
-main()
+int main()
 { char * p; int n; int i; int j; int dummy;
  
   for(i=0;i<MAXDOC;i++) {

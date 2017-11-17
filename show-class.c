@@ -15,6 +15,8 @@
 
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
+
 #define TEXT_MAX 10240
 static int text_size=0;
 char text[TEXT_MAX];
@@ -84,7 +86,7 @@ static int find_responsible_class_level(int id)
   fprintf(stderr, "Internal error\n");
   exit(1);  }
 
-static int suffix_text_order(void *x, void * y)
+static int suffix_text_order(const void *x, const void * y)
 { int r;
   struct suffix_struct * xs;
   struct suffix_struct * ys;
@@ -98,9 +100,10 @@ static int suffix_text_order(void *x, void * y)
   if(*xt<*yt) return -1;
   if(*xt>*yt) return  1;
   if(*xt==*yt) return 0;
+  return 0; /* cannot be */
 }
 
-static int suffix_document_text_order(void *x, void * y)
+static int suffix_document_text_order(const void *x, const void * y)
 { int r;
   struct suffix_struct * xs;
   struct suffix_struct * ys;
@@ -116,6 +119,7 @@ static int suffix_document_text_order(void *x, void * y)
   if(*xt<*yt) return -1;
   if(*xt>*yt) return  1;
   if(*xt==*yt) return 0;
+  return 0; /* cannot be */
 }
 
 static int lcp_length(char *x, char *y)
@@ -146,18 +150,18 @@ char class_character(int suffix, int k)
  return ' ';
 }
 
-char print_lcp_line(int n)
+void print_lcp_line(int n)
 {int j;
  for(j=0;j<4*7;j++) putchar(' ');
  for(j=0;j<n;j++) printf("  ");
  printf("+\n");
 }
 
-char class_contents(int suffix)
+void class_contents(int suffix)
 {
   int i; int j; int lbl; int k;
   for(i=0;i<class_size;i++) {
-    if((class_table[i].end == suffix)) {
+    if(class_table[i].end == suffix) {
       for(j=0;j<4*7;j++) putchar(' ');
       for(j=0;j<class_table[i].sil;j++) {
 	if(j == suffix_table[suffix].lcp) { printf(". "); } else { printf("  "); }
@@ -227,7 +231,7 @@ void print_class(int n)
 }
   
 
-main()
+int main()
 { 
   int ch;
   int i;
@@ -246,11 +250,11 @@ main()
     if(text[i]=='\n') current_doc++;
     suffix_size++;
   }
-  qsort(suffix_table, suffix_size, sizeof(struct suffix_struct), suffix_text_order);
+  qsort(suffix_table, suffix_size, sizeof(struct suffix_struct), &suffix_text_order);
   for(i=0;i<suffix_size;i++) {
     suffix_table[i].suffix_id = i;
   }
-  qsort(suffix_table, suffix_size, sizeof(struct suffix_struct), suffix_document_text_order);
+  qsort(suffix_table, suffix_size, sizeof(struct suffix_struct), &suffix_document_text_order);
   current_doc = -1;
   for(i=0;i<suffix_size;i++) {
     if(suffix_table[i].doc_id != current_doc) {

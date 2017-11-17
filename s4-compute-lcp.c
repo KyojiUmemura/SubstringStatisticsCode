@@ -43,7 +43,7 @@ int lcp_string(char * s1, char * s2)
 { 
   int r;
   r = 0;
-  while((s1[0] == s2[0])){
+  while(s1[0] == s2[0]){
     if(s1[0]== 0) break;
     r ++;
     s1 += 1;
@@ -54,7 +54,7 @@ int lcp_string(char * s1, char * s2)
  
   
 
-main()
+int main()
 { char * p; int n; int i; int j; int dummy; char * temp_text;
  
   text = text1;

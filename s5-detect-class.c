@@ -19,6 +19,8 @@
 /* The work around is easy, but make the program hard to read */
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
+
 /* These variables are updated by input, line by line */
 static int doc_id;
 static int suffix_pos;
@@ -61,7 +63,7 @@ static int find_responsible_class_level(int id)
     if(class_path[i].start <= id) return i; }
   fprintf(stderr, "Internal error\n");
   exit(1); }
-main()
+int main()
 { 
   /* create root class */
   current_level = 0;

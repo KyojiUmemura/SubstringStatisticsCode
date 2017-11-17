@@ -19,7 +19,7 @@ static int dl1 = -1;
 static int dl2 = -1;
 static int dl3 = -1;
 static int phai = -1;
-main()
+int main()
 { char * p; int n; 
   fprintf(stdout, "%10s %10s %10s %10s %10s %10s %10s %s\n", 
 	    "doc_id", "suffix_pos", "suffix_id", "lcp",
