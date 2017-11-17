@@ -1,5 +1,5 @@
 This directory contains a sample program to explain the algorithm
-to compute cdf
+to compute cdf, cummulative document frequency.
 
 s1-generate-suffix       < CORPUS > CORPUS.s1
 sh s2-sort-suffix        < CORPUS.s1 > CORPUS.s2
